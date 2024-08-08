@@ -2,7 +2,9 @@ all: jupiter
 
 jupiter: main.c
 	gcc -g -O0 -o $@ main.c
-
+check: all
+	./jupiter | grep "Hello from .*jupiter!"
+	@echo "*** ALL TESTS PASSED ***"
 clean:
 	-rm jupiter
-.PHONY: all clean
+.PHONY: all clean check
